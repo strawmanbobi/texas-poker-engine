@@ -1,0 +1,17 @@
+/**
+ * create by dummy-team
+ * 2017-09-01
+ */
+
+html,
+body {
+    height: 100%;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    overflow-y: hidden;
+}
+
+#copy_me {
+    display:none
+}

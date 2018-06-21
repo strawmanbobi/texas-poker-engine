@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="description" content="dummy-the">
+    <meta name="author" content="dummy team">
+    <title>游戏大厅</title>
+    <link rel="stylesheet" href="./js/public/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./js/public/bower_components/toastr/toastr.min.css">
+    <link rel="stylesheet" href="./style/hall.css">
+</head>
+<body>
+    <div class="container">
+        <h3 class="masthead-brand" style="float: left;"><img src="./res/images/brand.png"></h3>
+        <div class="cover-container">
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <nav>
+                        <ul class="nav masthead-nav">
+                            <li>
+                                <a href="index.html">主页
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./document.html">开发指南
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="validateSignIn(setBoard);">创建游戏
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="#">游戏大厅
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <h2><strong>游戏大厅</strong></h2>
+        <hr>
+        <div style="margin-top: 20px; max-width: 50%;">
+            <div class="input-group">
+                <span class="input-group-addon">搜索游戏</span>
+                <input type="text" maxlength="20" class="form-control" placeholder="创建者名称" id="search_name">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button" onclick="onSearch();">搜索</button>
+                    <button class="btn btn-info" type="button" onclick="listTheBoards();">刷新</button>
+                </span>
+            </div>
+        </div>
+        <div class="cover-container game-list" id="board_list" style="margin-top: 40px; min-height: 400px; text-align: center;">
+            <div style="width: 100%; text-align: center; margin-top: 100px;"><span><strong><h2>暂时没有游戏</h2></strong></span></div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-6" style="margin-bottom: 40px; text-align: center; background: #007FF2;">
+                <a href="#" style="text-decoration: none; color: #FFFFFF;" onclick="prevPage();">
+                    <div class="game-status game-div">
+                        <h4><strong>上一页</strong></h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6" style="margin-bottom: 40px; text-align: center; background: #007FF2;">
+                <a href="#" style="text-decoration: none; color: #FFFFFF;" onclick="nextPage();">
+                    <div class="game-status game-div">
+                        <h4><strong>下一页</strong></h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- game join dialog -->
+    <div class="modal fade dialog" id="join_game_dialog" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true" data-dismiss="modal">&times;</button>
+                    <span class="modal-title">加入游戏</span>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center;">
+                        <b><h4 id="info_creator_name"></h4></b>
+                        <p id="info_create_time"></p>
+                        <h4 id="info_players"></h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" style="margin-bottom: 40px;">
+                            <div class="game-status game-div" onclick="validateSignIn(joinLive);">
+                                <img src="./res/images/ico_watch.png">
+                                <h4><b>观看游戏</b></h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="game-status game-div" onclick="validateSignIn(joinGame);">
+                                <img src="./res/images/ico_play.png">
+                                <h4><b>人机对战</b></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="delete_board_button" type="button" class="btn btn-danger" style="display: none;" onclick="onDeleteBoard();">删除游戏</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade dialog" id="delete_game_dialog" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true" data-dismiss="modal">&times;</button>
+                    <span class="modal-title">删除游戏</span>
+                </div>
+                <div class="modal-body">
+                    确定要删除这个游戏吗？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="deleteBoard();">删除游戏</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dialogs"></div>
+</body>
+<script src="./js/public/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="./js/public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./js/public/bower_components/bootstrap/js/tooltip.js"></script>
+<script src="./js/public/bower_components/bootstrap/js/modal.js"></script>
+<script src="./js/public/bower_components/toastr/toastr.min.js"></script>
+<script src="./js/utils/url-parser.js"></script>
+<script src="./js/utils/string-utils.js"></script>
+<script src="./js/utils/md5.js"></script>
+<script src="./js/platform/basic.js"></script>
+<script src="./js/platform/hall.js"></script>
+</html>

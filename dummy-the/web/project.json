@@ -1,0 +1,14 @@
+{
+    "isLandscape": true,
+    "isPotrait": false,
+    "showFPS": false,
+    "debugMode": 0,
+    "frameRate": 12,
+    "id": "gameCanvas",
+    "renderMode": 1,
+    "jsList": [],
+    "modules": [
+        "cocos2d",
+        "extensions"
+    ]
+}

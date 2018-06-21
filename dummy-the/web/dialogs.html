@@ -1,0 +1,219 @@
+<!-- sign in dialog -->
+<div class="modal fade dialog" id="signin_dialog" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">&times;</button>
+                <span class="modal-title">登录</span>
+            </div>
+            <div class="modal-body">
+                <div class="input-group" style="margin-top: 20px;">
+                    <span class="input-group-addon input-group-addon-title">手机号码</span>
+                    <input type="tel" class="form-control" id="phone_number" placeholder="注册时填写的手机号">
+                </div>
+                <div class="input-group" style="margin-top: 20px;">
+                    <span class="input-group-addon input-group-addon-title">密码</span>
+                    <input type="password" class="form-control" id="password" placeholder="注册时提交的密码">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" onclick="signIn(showSignedIn);">登录</button>
+                <button type="button" class="btn btn-default" onclick="onResetPassword();">重置密码</button>
+                <button type="button" class="btn btn-primary" onclick="gotoRegister();">去注册</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade dialog" id="signup_dialog" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">&times;</button>
+                <span class="modal-title">注册</span>
+            </div>
+            <div class="modal-body">
+                <div class="input-group" style="margin-top: 20px;">
+                    <span class="input-group-addon input-group-addon-title">手机号码</span>
+                    <input type="tel" class="form-control" placeholder="11位手机号码" min="1" minlength="11" maxlength="11" id="reg_phone_number"
+                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                    <span class="input-group-btn">
+                    <button class="btn btn-warning" type="button" onclick="sendSmsForSignup()">发送验证码</button>
+                </span>
+                </div>
+                <div class="input-group" style="margin-top: 20px;">
+                    <span class="input-group-addon input-group-addon-title">短信验证码</span>
+                    <input type="tel" class="form-control" id="verification_code" placeholder="短信验证码">
+                </div>
+                <div class="input-group" style="margin-top: 20px;">
+                    <span class="input-group-addon input-group-addon-title">玩家名称</span>
+                    <input type="tel" class="form-control" id="name" placeholder="游戏中的昵称">
+                </div>
+                <div class="input-group" style="margin-top: 20px;">
+                    <span class="input-group-addon input-group-addon-title">密码</span>
+                    <input type="password" class="form-control" id="reg_password" placeholder="密码">
+                </div>
+                <div class="input-group" style="margin-top: 20px;">
+                    <span class="input-group-addon input-group-addon-title">密码确认</span>
+                    <input type="password" class="form-control" id="reg_confirm" placeholder="再次输入密码确认">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" onclick="signUp(autoSignIn);">注册</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- reset password dialog -->
+<div class="modal fade dialog" id="reset_password_dialog" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">&times;</button>
+                <span class="modal-title">重置密码</span>
+            </div>
+            <div class="modal-body">
+                <div class="input-group" style="margin-top: 20px;">
+                    <span class="input-group-addon input-group-addon-title">手机号码</span>
+                    <input type="number" class="form-control" id="reset_password_phone_number" min="1" minlength="11" maxlength="11" placeholder="注册时填写的手机号码"
+                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                    <span class="input-group-btn">
+                            <button class="btn btn-warning" type="button" onclick="sendSmsForUpdate()">发送验证码</button>
+                        </span>
+                </div>
+                <div class="input-group" style="margin-top: 20px;">
+                    <span class="input-group-addon input-group-addon-title">短信验证码</span>
+                    <input type="number" class="form-control" placeholder="6位数短信验证码" min="0" maxlength="6" id="reset_password_verification_code"
+                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                </div>
+                <div class="input-group" style="margin-top: 20px;">
+                    <span class="input-group-addon input-group-addon-title">密码</span>
+                    <input type="password" class="form-control" id="reset_password_password" placeholder="新密码">
+                </div>
+                <div class="input-group" style="margin-top: 20px;">
+                    <span class="input-group-addon input-group-addon-title">确认密码</span>
+                    <input type="password" class="form-control" id="reset_password_confirm" placeholder="确认新密码">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="resetPassword();">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- game settings dialog -->
+<div class="modal fade dialog" id="goto_game_dialog" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">&times;</button>
+                <span class="modal-title">创建游戏</span>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <p><strong>参数设置</strong></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon input-group-addon-title">指令间隔&nbsp;<span class="glyphicon glyphicon-question-sign tool_tip" data-toggle="tooltip" title="为了让您看清楚 Live 上玩家的出牌顺序, 服务器上可以在连续两条 action 请求之间加上一定时间间隔"></span></span>
+                                <input type="number" min="0" max="2" step="0.2" class="form-control" placeholder="指令间隔" id="game_command_interval" value="1" onkeydown="return false">
+                                <span class="input-group-addon">秒</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon input-group-addon-title">回合间隔&nbsp;<span class="glyphicon glyphicon-question-sign tool_tip" data-toggle="tooltip" title="在每回合清算的时候将展示玩家手牌, 得分和牌面组合, 以及让客户端请求reload 的这个时间间隔"></span></span>
+                                <input type="number" min="5" max="30" step="5" class="form-control" placeholder="回合间隔" id="game_round_interval" value="15" onkeydown="return false">
+                                <span class="input-group-addon">秒</span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon input-group-addon-title">指令超时&nbsp;<span class="glyphicon glyphicon-question-sign tool_tip" data-toggle="tooltip" title="服务器等待客户端决策指令的超时时间, 正式游戏为 5 秒"></span></span>
+                                <input type="number" min="1" max="10" step="1" class="form-control" placeholder="指令超时" id="game_command_timeout" value="5" onkeydown="return false">
+                                <span class="input-group-addon">秒</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon input-group-addon-title">掉线超时&nbsp;<span class="glyphicon glyphicon-question-sign tool_tip" data-toggle="tooltip" title="客户端因为各种原因掉线之后服务器的等待时间, 正式游戏为 10 秒"></span></span>
+                                <input type="number" min="5" max="15" step="1" class="form-control" placeholder="回合间隔" id="game_lost_timeout" value="5" onkeydown="return false">
+                                <span class="input-group-addon">秒</span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon input-group-addon-title">默认小盲&nbsp;<span class="glyphicon glyphicon-question-sign tool_tip" data-toggle="tooltip" title="默认初始小盲注, 正式游戏为 10"></span></span>
+                                <input type="number" min="10" max="100" step="10" class="form-control" placeholder="默认小盲" id="game_default_sb" value="10" onkeydown="return false">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon input-group-addon-title">默认筹码&nbsp;<span class="glyphicon glyphicon-question-sign tool_tip" data-toggle="tooltip" title="默认玩家初始以及每次reload可获得的筹码, 正式游戏为 1000"></span></span>
+                                <input type="number" min="1000" max="2000" step="100" class="form-control" placeholder="默认筹码" id="game_default_chips" value="2000" onkeydown="return false">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon input-group-addon-title">重载次数&nbsp;<span class="glyphicon glyphicon-question-sign tool_tip" data-toggle="tooltip" title="玩家可申请的reload的机会, 正式游戏为 2 次"></span></span>
+                                <input type="number" min="0" max="5" step="1" class="form-control" placeholder="重载次数" id="game_reload_chance" value="2" onkeydown="return false">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="input-group" style="padding-top: 6px;">
+                                <input type="checkbox" id="game_sound" checked/> 音效&nbsp;<span class="glyphicon glyphicon-question-sign tool_tip" data-toggle="tooltip" title="就是音效呗"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="input-group" style="padding-top: 6px;">
+                                <input type="checkbox" id="game_bgm" checked/> 音乐&nbsp;<span class="glyphicon glyphicon-question-sign tool_tip" data-toggle="tooltip" title="无限洗脑循环"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="input-group" style="padding-top: 6px;">
+                                <input type="checkbox" id="auto_restart"/> 循环&nbsp;<span class="glyphicon glyphicon-question-sign tool_tip" data-toggle="tooltip" title="自动重新开始下一局游戏"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="createBoard();">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hint dialog -->
+<div class="modal fade" id="hint_dialog" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">提示</h4>
+            </div>
+            <div class="modal-body">
+                <div id="text_hint"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="description" content="dummy-the">
+    <meta name="author" content="dummy team">
+    <title>Dummy Texas Poker Game</title>
+    <link rel="stylesheet" href="./js/public/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./js/public/bower_components/toastr/toastr.min.css">
+    <link rel="stylesheet" href="./style/index.css">
+</head>
+<body>
+    <div class="container">
+        <h3 class="masthead-brand pc-only" style="float: left; position: absolute;"><img src="./res/images/brand.png"></h3>
+        <div class="cover-container pc-only">
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <nav>
+                        <ul class="nav masthead-nav">
+                            <li class="active">
+                                <a href="#">主页
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./document.html">开发指南
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="validateSignIn(setBoard);">创建游戏
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./hall.html">游戏大厅
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center;"><img style="max-width: 25%;" src="./res/images/logo.png"></div>
+        <div style="text-align: center;"><h1><strong>Dummy Texas Poker Game</strong></h1></div>
+        <div style="text-align: center;" id="login_button"><a href="#" onclick="onSignIn();"><img src="./res/images/btn_sign_in.png"></a></div>
+        <div style="text-align: center; display: none; height: 40px; margin-top:25px;"  id="welcome"><h4><strong>玩家<span id="player_name"></span>已上线</strong> <a href="#" onclick="signOut();">[注销]</a></h4></div>
+        <hr>
+        <div class="row" style="border-bottom: 4px solid #DDD; margin-bottom: 60px; text-align: center">
+            <div class="col-md-4" style="margin-bottom: 40px;">
+                <div class="game-status game-div">
+                    <a style="text-decoration: none; color: #000;" href="./document.html">
+                        <img src="./res/images/ico_guide.png">
+                        <h3><b>开发指南</b></h3>
+                        <p class="content-noindent" style="font-size: 16px; text-align: center;">游戏的开发文档，FAQ，实用工具，请在进行开发之前首先阅读并理解</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="game-status game-div" onclick="validateSignIn(setBoard);">
+                    <a style="text-decoration: none; color: #000;" href="#">
+                        <img src="./res/images/ico_game.png">
+                        <h3><b>创建游戏</b></h3>
+                        <p class="content-noindent" style="font-size: 16px; text-align: center;">创建一个游戏，并且加入对战，积累数据并对你的AI进行训练</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-bottom: 40px;">
+                <div class="game-status game-div">
+                    <a style="text-decoration: none; color: #000;" href="./hall.html">
+                        <img src="./res/images/ico_hall.png">
+                        <h3><b>游戏大厅</b></h3>
+                        <p class="content-noindent" style="font-size: 16px; text-align: center;">在这里能观看并加入其他人创建的游戏，可以人机对战，甚至在人类之间进行对决</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-bottom: 20px;">Powered by Dummy AI Games</div>
+    </div>
+    <div id="dialogs"></div>
+</body>
+<script src="./js/public/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="./js/public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./js/public/bower_components/bootstrap/js/modal.js"></script>
+<script src="./js/public/bower_components/toastr/toastr.min.js"></script>
+<script src="./js/utils/url-parser.js"></script>
+<script src="./js/utils/string-utils.js"></script>
+<script src="./js/utils/md5.js"></script>
+<script src="./js/platform/basic.js"></script>
+<script src="./js/platform/index.js"></script>
+</html>

@@ -1,0 +1,145 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    overflow-y: scroll;
+    -webkit-background-size: cover;
+    background-image: url('../res/images/background.png');
+    background-attachment: fixed;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.container {
+    width: 60%;
+}
+
+pre {
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+
+.cover-container {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: right;
+}
+
+/* Padding for spacing */
+.inner {
+    padding-top: 30px;
+}
+
+
+/*
+ * Header
+ */
+.masthead-brand {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.masthead-nav > li {
+    display: inline-block;
+}
+.masthead-nav > li + li {
+    margin-left: 20px;
+}
+.masthead-nav > li > a {
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000; /* IE8 proofing */
+    color: rgba(0, 0, 0, .75);
+    border-bottom: 2px solid transparent;
+}
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+    background-color: transparent;
+    border-bottom-color: #a9a9a9;
+    border-bottom-color: rgba(255,255,255,.25);
+}
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+    color: #000;
+    border-bottom-color: #000;
+}
+
+.tag {
+    font-size: 14px;
+    font-weight: normal;
+    padding: .3em .4em .4em;
+    margin: 0 .1em;
+}
+
+.tag a {
+    color: #bbb;
+    cursor: pointer;
+    opacity: 0.6;
+}
+.tag a:hover {
+    opacity: 1.0
+}
+.tag .remove {
+    vertical-align: bottom;
+    top: 0;
+}
+.tag a {
+    margin: 0 0 0 .3em;
+}
+.tag a .glyphicon-white {
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+.new_content {
+    color: #FF3F00
+}
+
+.question {
+    color: #FF3F00
+}
+
+.answer {
+    color: #000000
+}
+
+.content {
+    text-align: left;
+    text-indent:28px;
+}
+
+td, th {
+    border: 1px solid black;
+}
+
+thead {
+    text-align: left;
+}
+
+td {
+    padding: 2px;
+}
+
+tbody {
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.input-group-addon-title {
+    min-width: 100px;
+    text-align: right;
+}
