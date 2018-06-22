@@ -76,7 +76,7 @@ Following are key config parameters:
     // instance count must be matched with MULTIPLE_INSTANCE definition in the last part
 
 ***
-#### Prepare Dummies
+### Prepare Dummies
 Players may need dummies (A very very naive poker decision maker intelligence) during the training. You need to create enough (say 1000) dummies at the beginning.
 ***
 To start the front-end service, please refer to the README of dummy-the project
