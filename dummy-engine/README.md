@@ -6,9 +6,6 @@ install node.js (above version 6.0)
     
     npm install -g bower
     npm install
-    
-    cd to web/js/public
-    bower install
 
 install mongo DB (above version 3.4)
 
@@ -60,9 +57,9 @@ Following are key config parameters:
 
 **SMS_SIGN_NAME** - SMS service sign name (compatible with Aliyun SMS service)
 
-**MULTIPLE_INSTANCE** - Multiple instance count (must be matched with the multiple instance parameter when start dummy-engine)
+**MULTIPLE_INSTANCE** - Multiple instance (slave instance) count (must be matched with the multiple instance parameter when start dummy-engine)
 
-**BASE_PORT** - Base port for multiple instance deployment, engine instances would be listen on the port of BASE_PORT, BASE_PORT+1, BASE_PORT+2 ... BASE_PORT+MULTIPLE_INSTANCE
+**BASE_PORT** - Base port for multiple instance (slave instance) deployment, engine instances would be listen on the port of BASE_PORT, BASE_PORT+1, BASE_PORT+2 ... BASE_PORT+MULTIPLE_INSTANCE
 
 ***
 
@@ -73,6 +70,7 @@ Following are key config parameters:
 * Multiple instance
 
     ./multi-run.sh <instance-count>
+    
     // instance count must be matched with MULTIPLE_INSTANCE definition in the last part
 
 ***
