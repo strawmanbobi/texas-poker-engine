@@ -20,12 +20,11 @@ exports.setupEnvironment = function () {
         REDIS_HOST = "127.0.0.1";
         REDIS_PORT = "6379";
         REDIS_PASSWORD = null;
-        SMS_ACCESSKEY_ID = "";
-        SMS_ACCESSKEY_SEC = "";
-        SMS_SIGN_NAME = "";
+        SMS_ACCESSKEY_ID = "T82nbipHSESmHzd8";
+        SMS_ACCESSKEY_SEC = "SOweQ8UVwCwPr2NC8EC89EOeKJc5Um";
+        SMS_SIGN_NAME = "大米AI编程平台";
         MULTIPLE_INSTANCE = 20;
         BASE_PORT = 9000;
-        MATCH_SERVER_PORT = 8081;
     } else if (enums.APP_PRODUCTION_MODE === env) {
         LISTEN_PORT = "8080";
         MONGO_DB_SERVER_ADDRESS = "127.0.0.1";
@@ -36,12 +35,11 @@ exports.setupEnvironment = function () {
         REDIS_HOST = "127.0.0.1";
         REDIS_PORT = "6379";
         REDIS_PASSWORD = null;
-        SMS_ACCESSKEY_ID = "";
-        SMS_ACCESSKEY_SEC = "";
-        SMS_SIGN_NAME = "";
+        SMS_ACCESSKEY_ID = "T82nbipHSESmHzd8";
+        SMS_ACCESSKEY_SEC = "SOweQ8UVwCwPr2NC8EC89EOeKJc5Um";
+        SMS_SIGN_NAME = "大米AI编程平台";
         MULTIPLE_INSTANCE = 20;
         BASE_PORT = 9000;
-        MATCH_SERVER_PORT = 8081;
     } else if (enums.APP_USERDEBUG_MODE === env) {
         LISTEN_PORT = "8080";
         MONGO_DB_SERVER_ADDRESS = "127.0.0.1";
@@ -52,11 +50,10 @@ exports.setupEnvironment = function () {
         REDIS_HOST = "127.0.0.1";
         REDIS_PORT = "6379";
         REDIS_PASSWORD = null;
-        SMS_ACCESSKEY_ID = "";
-        SMS_ACCESSKEY_SEC = "";
-        SMS_SIGN_NAME = "";
+        SMS_ACCESSKEY_ID = "T82nbipHSESmHzd8";
+        SMS_ACCESSKEY_SEC = "SOweQ8UVwCwPr2NC8EC89EOeKJc5Um";
+        SMS_SIGN_NAME = "大米AI编程平台";
         MULTIPLE_INSTANCE = 20;
         BASE_PORT = 9000;
-        MATCH_SERVER_PORT = 8081;
     }
 };

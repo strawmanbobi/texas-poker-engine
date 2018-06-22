@@ -14,19 +14,13 @@ exports.setupEnvironment = function () {
         LISTEN_PORT = "3001";
         APP_SERVER_ADDRESS = "localhost";
         APP_SERVER_PORT = "8080";
-        MULTIPLE_INSTANCE = 100;
-        BASE_PORT = 9000;
     } else if (enums.APP_PRODUCTION_MODE === env) {
         LISTEN_PORT = "3001";
         APP_SERVER_ADDRESS = "localhost";
         APP_SERVER_PORT = "8080";
-        MULTIPLE_INSTANCE = 100;
-        BASE_PORT = 9000;
     } else if (enums.APP_USERDEBUG_MODE === env) {
         LISTEN_PORT = "3001";
         APP_SERVER_ADDRESS = "localhost";
         APP_SERVER_PORT = "8080";
-        MULTIPLE_INSTANCE = 100;
-        BASE_PORT = 9000;
     }
 };
