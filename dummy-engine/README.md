@@ -68,7 +68,7 @@ Following are key config parameters:
     ./startup.sh
 * Multiple instance
 
-    ./multi-run.sh <instance-count>
+    ./multi-run.sh &lt;instance-count&gt;
     
     // instance count must be matched with MULTIPLE_INSTANCE definition in the last part
 
