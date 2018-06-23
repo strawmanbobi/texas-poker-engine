@@ -8,15 +8,15 @@ var logger = require('../poem/logging/logger4js').helper;
 var ErrorCode = require('../constants/error_code');
 var errorCode = new ErrorCode();
 
-exports.getGameInfo = function (gameName, callback) {
+exports.getGames = function (conditions, callback) {
     db.collection('game', function (err, gameCollection) {
         if (!err) {
-            gameCollection.find(gameName).toArray(function (err, result) {
+            gameCollection.find(conditions).toArray(function (err, result) {
                 if (!err) {
-                    logger.info("get game info by gameName: " + gameName.name + " successfully");
-                    callback(errorCode.SUCCESS, result); //return board array
+                    logger.info("get game info by conditions: " + conditions.name + " successfully");
+                    callback(errorCode.SUCCESS, result);
                 } else {
-                    logger.error("get game info by gameName: " + gameName.name + " failed: " + err);
+                    logger.error("get game info by conditions: " + conditions.name + " failed: " + err);
                     callback(errorCode.FAILED, null);
                 }
             });
@@ -42,6 +42,25 @@ exports.createGame = function (game, callback) {
                     callback(errorCode.SUCCESS, result);
                 }
             });
+        }
+    });
+};
+
+exports.updateGame = function (conditions, newGame, callback) {
+    db.collection('game', function (err, gameCollection) {
+        if (!err) {
+            gameCollection.update(conditions, {$set: newGame}, function (err, result) {
+                if (!err) {
+                    logger.info("update game by conditions " + conditions + " successfully");
+                    callback(errorCode.SUCCESS, result);
+                } else {
+                    logger.error("update game by conditions: " + conditions + " failed: " + err);
+                    callback(errorCode.FAILED, null);
+                }
+            });
+        } else {
+            logger.error("update game collection error. " + err);
+            callback(errorCode.FAILED, null);
         }
     });
 };

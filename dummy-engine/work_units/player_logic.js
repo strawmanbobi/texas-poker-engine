@@ -48,7 +48,7 @@ exports.registerWorkUnit = function (player, callback) {
                     logger.info('verification code validate passed');
                     player.role = enums.ROLE_PLAYER;
                     player.status = 1;
-                    player.verificationCode = null;
+                    delete player.verificationCode;
                     player.instance = BASE_PORT + (stringUtils.getHashCode(phoneNumber, false) % MULTIPLE_INSTANCE);
                     logger.info('phoneNumber hashed instance = ' + player.instance);
                     playerDao.createPlayer(player, function(createPlayerErr, createdPlayer) {

@@ -22,7 +22,7 @@ function Enums() {
     this.GAME_FLY_CHESS = "fly_chess";
 
     this.ROLE_PLAYER = 0;
-    this.ROLE_ADMIN = 1;
+    this.ROLE_DUMMY = 1;
 }
 
 module.exports = Enums;

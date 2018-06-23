@@ -6,5 +6,4 @@
 var app = require('../dummy.js');
 var gameService = require('../rest_services/game_service');
 
-
-app.post("/game/create_game", gameService.createGame);
+app.post("/game/init_dummies", gameService.initDummies);
