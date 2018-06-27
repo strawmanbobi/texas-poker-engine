@@ -40,7 +40,7 @@ exports.createBoardWorkUnit = function (creatorPhoneNumber, gameName, callback) 
             var creatorRealName = players[0].studentName;
             logger.info('creator phoneNumber = ' + creatorPhoneNumber);
             logger.info('creator name = ' + creatorName);
-            gameDao.getGameInfo({name: gameName}, function (getGameErr, games) {
+            gameDao.getGames({name: gameName}, function (getGameErr, games) {
                 if (getGameErr.code === errorCode.SUCCESS.code && games !== null && games.length > 0) {
                     var getBoardConditions = {
                         creator: creatorPhoneNumber,
