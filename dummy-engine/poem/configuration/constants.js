@@ -33,9 +33,9 @@ global.MONGO_DB_PASSWORD = null;
 // data_set : Aliyun-LegacyOSS
 global.OSS_HOST = "oss-cn-hangzhou.aliyuncs.com";
 global.OSS_PORT = "80";
-global.OSS_APP_ID = "T82nbipHSESmHzd8";
-global.OSS_APP_SECRET = "SOweQ8UVwCwPr2NC8EC89EOeKJc5Um";
-global.BUCKET_NAME = "strawmanbobi-beats";
+global.OSS_APP_ID = "";
+global.OSS_APP_SECRET = "";
+global.BUCKET_NAME = "";
 
 // cache : memcached
 global.MEMCACHED_HOST = "";

@@ -38,7 +38,7 @@ public class DataHelper {
                 case FUNCTION_GEN_DUMMIES: {
                     if (7 != args.length) {
                         System.out.println("invalid parameter");
-                        System.out.println("Please call this method like DataHelper [function_code = 0] " +
+                        System.out.println("Please call this method like DataHelper [function_code = 1] " +
                                 "[db_host] [db_port] [db_user] [db_password] [player_count] [instance_count]");
                         return;
                     }

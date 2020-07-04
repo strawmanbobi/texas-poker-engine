@@ -33,14 +33,15 @@ exports.createBoardWorkUnit = function (creatorPhoneNumber, gameName, callback) 
         status: 1
     };
     playerDao.getPlayers(playerCon, function (getPlayerErr, players) {
-
         if (getPlayerErr.code === errorCode.SUCCESS.code && null !== players && players.length > 0) {
             var port = players[0].instance;
             var creatorName = players[0].name;
             var creatorRealName = players[0].studentName;
             logger.info('creator phoneNumber = ' + creatorPhoneNumber);
             logger.info('creator name = ' + creatorName);
+            logger.info('game name = ' + gameName);
             gameDao.getGames({name: gameName}, function (getGameErr, games) {
+                logger.info('get game info result = ' + JSON.stringify(games));
                 if (getGameErr.code === errorCode.SUCCESS.code && games !== null && games.length > 0) {
                     var getBoardConditions = {
                         creator: creatorPhoneNumber,
@@ -93,7 +94,7 @@ exports.createBoardWorkUnit = function (creatorPhoneNumber, gameName, callback) 
                         }
                     });
                 } else { // get game failed
-                    logger.info('get game failed');
+                    logger.info('get game failed in create game');
                     callback(errorCode.FAILED, null);
                 }
             });

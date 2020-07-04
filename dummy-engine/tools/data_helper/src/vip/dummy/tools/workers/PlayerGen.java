@@ -40,11 +40,11 @@ public class PlayerGen {
         MongoCollection<Document> collection;
         try {
             String connectionString = "mongodb://" + dbUser + ":" + dbPassword + "@" +
-                    dbHost + ":" + dbPort + "/?authSource=dummy_game";
+                    dbHost + ":" + dbPort + "/?authSource=the_game";
             System.out.println(connectionString);
             MongoClientURI clientURI = new MongoClientURI(connectionString);
             MongoClient mongoClient = new MongoClient(clientURI);
-            database = mongoClient.getDatabase("dummy_game");
+            database = mongoClient.getDatabase("the_game");
             collection = database.getCollection("player");
 
             // clean virtual players

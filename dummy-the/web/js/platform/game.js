@@ -132,7 +132,7 @@ var onSocketClosed = function(data) {
     console.log("socket closed : " + JSON.stringify(data));
     // refresh this page
     if (STATUS_GAME_ENDED !== gameStatus || STATUS_GAME_FINISHED !== gameStatus) {
-        location.reload();
+        // location.reload();
     }
 };
 
