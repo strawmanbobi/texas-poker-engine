@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@alicloud/sms-sdk": "^1.0.8",
-    "async": "^2.1.4",
+    "async": "^3.2.2",
     "body-parser": "^1.13.2",
     "bson": "^1.0.5",
     "connect-flash": "^0.1.1",
