@@ -18,7 +18,7 @@
     "express-session": "^1.15.4",
     "form-data": "^2.1.2",
     "formidable": "^1.0.17",
-    "jsonwebtoken": "^8.1.0",
+    "jsonwebtoken": "^9.0.0",
     "log4js": "^2.3.3",
     "mongodb": "^2.2.30",
     "node-uuid": "^1.4.8",
