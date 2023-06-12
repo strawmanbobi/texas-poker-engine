@@ -3,8 +3,6 @@ Texas Poker Engine is an open source project which helps you to host a Texas Pok
 
 You can deploy it to your website both on your private cloud or Aliyun.
 
-Official Site : [http://dummy.vip](http://dummy.vip) 
-
 🚧⚠️ 
 
  __This website is being maintained and will be re published with English version and popular 3rd party login eg. Facebook and Google account.__
